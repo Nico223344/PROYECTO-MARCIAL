@@ -130,8 +130,7 @@
      <hr>
       <header id="header">
         <h1>Carrito Marcial</h1> 
-        <nav class="navbar bg-dark text-white">
-          <div class="contenedor>div">
+          <div class="container-fluid">
               <a class="navbar-brand text-white">Tienda</a>
               <button class="btn btn-danger me-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                   <!-- <i class="fa fa-c"></i> -->
@@ -139,8 +138,41 @@
                   <strong>Carrito de compras</strong>
               </button>
           </div>
-        </nav>
     </header>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito de compra</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Imagen</th>
+                <th scope="col">Precio</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody id="carrito-producto">
+              <tr>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <div class="d-grid gap-2">
+              <button class="btn btn-success btn-lg" type="button">
+                Enviar compra a wsp <i class="fa-brands fa-whatsapp"></i> $ <span id="carrito-precio">0</span>
+              </button>
+          </div>
+
+      </div>
+    </div>
+
     <div id="contenedor" class="contenedor">
         <div>
             <img src="img/Ken-Shoryuken-SFIII.webp" alt="producto 1">
