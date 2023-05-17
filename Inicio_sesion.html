@@ -32,6 +32,27 @@
         right: 0;
       }
     </style> 
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+      
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+    </style>
 <head>
   <body>
     <div class="login-box opacity-50 contenedor">
@@ -42,17 +63,45 @@
           <img src="https://1000marcas.net/wp-content/uploads/2022/05/Akatsuki-Logo.png" height="100px" alt="Logo cars">
         </a>
         <h1>Inicio Sesion</h1>
-        <form>
-          <label for="username">Nombre de usuario</label>
-          <input type="text" name="userName" id="userName" placeholder="Username">
-
-
-          <label for="password">Contraseña</label>
-          <input type="password" placeholder="Enter Password">
-
-          <input type="submit" value="Iniciar"> 
-        </form> 
+        <form id="loginForm" onsubmit="event.preventDefault(); validarInicioSesion();">
+          <label for="email">Email:</label>
+          <input type="email" id="email" required>
+          
+          <label for="contrasena">Contraseña:</label>
+          <input type="password" id="contrasena" required>
+          
+          <input type="submit" value="Iniciar Sesión">
+        </form>
       </div>  
+        <div id="loginModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="cerrarModal('loginModal')">&times;</span>
+            <h2>Sesión Iniciada</h2>
+            <p>Has iniciado sesión correctamente.</p>
+          </div>
+        </div>
+        
+        <script>
+          function validarInicioSesion() {
+            var email = document.getElementById('email').value;
+            var contrasena = document.getElementById('contrasena').value;
+            
+            if (email === '' || contrasena === '') {
+              alert('Por favor, completa todos los campos.');
+              return;
+            }
+            
+            var modal = document.getElementById('loginModal');
+            modal.style.display = 'block';
+            
+            document.getElementById('loginForm').reset();
+          }
+          
+          function cerrarModal(modalId) {
+            var modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+          }
+        </script>
   </body>
 
 </head>
